@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#111111] text-gray-300">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#181818] p-6 flex flex-col">
+            <h1 class="text-2xl font-bold text-white mb-6">Dashboard</h1>
+            <nav class="flex-1">
+                <ul>
+                    <li class="mb-4 flex items-center space-x-2">
+                        <span>🏠</span><a href="#" class="text-gray-400 hover:text-yellow-300">Home</a>
+                    </li>
+                    <li class="mb-4 flex items-center space-x-2">
+                        <span>📊</span><a href="#" class="text-gray-400 hover:text-yellow-300">Analytics</a>
+                    </li>
+                    <li class="mb-4 flex items-center space-x-2">
+                        <span>👤</span><a href="#" class="text-gray-400 hover:text-yellow-300">Users</a>
+                    </li>
+                    <li class="mb-4 flex items-center space-x-2">
+                        <span>⚙️</span><a href="#" class="text-gray-400 hover:text-yellow-300">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="bg-yellow-400 text-black p-2 rounded mt-4">Logout</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Top Navbar -->
+            <div class="flex justify-between bg-[#222222] p-4 rounded">
+                <h2 class="text-xl font-semibold text-white">Dashboard Overview</h2>
+                <input type="text" placeholder="Search..." class="p-2 rounded bg-[#333333] text-gray-200">
+            </div>
+
+            <!-- Cards Section -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+                <div class="bg-[#222222] p-6 rounded shadow">
+                    <h3 class="text-yellow-300 text-lg font-semibold">Total Users</h3>
+                    <p class="text-gray-400 text-2xl mt-2">1,250</p>
+                </div>
+                <div class="bg-[#222222] p-6 rounded shadow">
+                    <h3 class="text-yellow-300 text-lg font-semibold">Revenue</h3>
+                    <p class="text-gray-400 text-2xl mt-2">$34,000</p>
+                </div>
+                <div class="bg-[#222222] p-6 rounded shadow">
+                    <h3 class="text-yellow-300 text-lg font-semibold">New Signups</h3>
+                    <p class="text-gray-400 text-2xl mt-2">145</p>
+                </div>
+                <div class="bg-[#222222] p-6 rounded shadow">
+                    <h3 class="text-yellow-300 text-lg font-semibold">Pending Orders</h3>
+                    <p class="text-gray-400 text-2xl mt-2">78</p>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="bg-[#181818] p-6 rounded shadow mt-6">
+                <h3 class="text-xl font-semibold text-yellow-300">User Growth</h3>
+                <canvas id="userChart" class="mt-4"></canvas>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="bg-[#222222] p-6 rounded shadow mt-6">
+                <h3 class="text-xl font-semibold text-yellow-300">Recent Transactions</h3>
+                <table class="w-full mt-4 text-left border-collapse">
+                    <thead>
+                        <tr class="text-gray-400 border-b border-gray-700">
+                            <th class="p-2">User</th>
+                            <th class="p-2">Amount</th>
+                            <th class="p-2">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-2">John Doe</td>
+                            <td class="p-2">$200</td>
+                            <td class="p-2 text-green-400">Completed</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-2">Jane Smith</td>
+                            <td class="p-2">$450</td>
+                            <td class="p-2 text-yellow-400">Pending</td>
+                        </tr>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-2">Mike Johnson</td>
+                            <td class="p-2">$300</td>
+                            <td class="p-2 text-red-400">Failed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('userChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Users',
+                    data: [10, 20, 40, 35, 50, 70],
+                    borderColor: 'yellow',
+                    backgroundColor: 'rgba(255, 255, 0, 0.2)',
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
