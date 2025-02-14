@@ -3,124 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Anant | Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-[#111111] text-gray-300">
 
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-[#181818] p-6 flex flex-col">
-            <h1 class="text-2xl font-bold text-white mb-6">Dashboard</h1>
-            <nav class="flex-1">
-                <ul>
-                    <li class="mb-4 flex items-center space-x-2">
-                        <span>🏠</span><a href="#" class="text-gray-400 hover:text-yellow-300">Home</a>
-                    </li>
-                    <li class="mb-4 flex items-center space-x-2">
-                        <span>📊</span><a href="#" class="text-gray-400 hover:text-yellow-300">Analytics</a>
-                    </li>
-                    <li class="mb-4 flex items-center space-x-2">
-                        <span>👤</span><a href="#" class="text-gray-400 hover:text-yellow-300">Users</a>
-                    </li>
-                    <li class="mb-4 flex items-center space-x-2">
-                        <span>⚙️</span><a href="#" class="text-gray-400 hover:text-yellow-300">Settings</a>
-                    </li>
-                </ul>
-            </nav>
-            <button class="bg-yellow-400 text-black p-2 rounded mt-4">Logout</button>
-        </aside>
+    <!-- Navigation -->
+    <nav class="bg-[#181818] text-white p-4 fixed w-full z-10 top-0">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Anant</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#projects" class="hover:text-gray-400">Projects</a></li>
+                <li><a href="#skills" class="hover:text-gray-400">Skills</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <!-- Top Navbar -->
-            <div class="flex justify-between bg-[#222222] p-4 rounded">
-                <h2 class="text-xl font-semibold text-white">Dashboard Overview</h2>
-                <input type="text" placeholder="Search..." class="p-2 rounded bg-[#333333] text-gray-200">
+    <!-- Hero Section -->
+    <section class="text-center py-32 bg-[#222222] text-white mt-16">
+        <h1 class="text-5xl font-bold">Hello, I'm Anant</h1>
+        <p class="text-xl mt-2">Full Stack Web Developer & UI/UX Enthusiast</p>
+        <a href="#contact" class="mt-6 inline-block bg-[#ffcc00] text-black px-6 py-2 rounded font-semibold hover:bg-[#e6b800]">Get In Touch</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="p-10 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-yellow-400">About Me</h2>
+        <p class="text-gray-400 mt-4">I am a passionate Full Stack Developer with experience in building scalable web applications. I specialize in React, Node.js, Laravel, and UI/UX design.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="p-10 bg-[#181818]">
+        <h2 class="text-3xl font-bold text-center text-yellow-400">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 max-w-6xl mx-auto">
+            <div class="bg-[#222222] p-6 rounded shadow hover:shadow-lg">
+                <h3 class="text-xl font-semibold text-yellow-300">E-Commerce Platform</h3>
+                <p class="text-gray-400">A full-featured e-commerce platform with real-time payment integration.</p>
             </div>
-
-            <!-- Cards Section -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
-                <div class="bg-[#222222] p-6 rounded shadow">
-                    <h3 class="text-yellow-300 text-lg font-semibold">Total Users</h3>
-                    <p class="text-gray-400 text-2xl mt-2">1,250</p>
-                </div>
-                <div class="bg-[#222222] p-6 rounded shadow">
-                    <h3 class="text-yellow-300 text-lg font-semibold">Revenue</h3>
-                    <p class="text-gray-400 text-2xl mt-2">$34,000</p>
-                </div>
-                <div class="bg-[#222222] p-6 rounded shadow">
-                    <h3 class="text-yellow-300 text-lg font-semibold">New Signups</h3>
-                    <p class="text-gray-400 text-2xl mt-2">145</p>
-                </div>
-                <div class="bg-[#222222] p-6 rounded shadow">
-                    <h3 class="text-yellow-300 text-lg font-semibold">Pending Orders</h3>
-                    <p class="text-gray-400 text-2xl mt-2">78</p>
-                </div>
+            <div class="bg-[#222222] p-6 rounded shadow hover:shadow-lg">
+                <h3 class="text-xl font-semibold text-yellow-300">Personal Blog</h3>
+                <p class="text-gray-400">A responsive blog system with Markdown support and user authentication.</p>
             </div>
-
-            <!-- Chart Section -->
-            <div class="bg-[#181818] p-6 rounded shadow mt-6">
-                <h3 class="text-xl font-semibold text-yellow-300">User Growth</h3>
-                <canvas id="userChart" class="mt-4"></canvas>
+            <div class="bg-[#222222] p-6 rounded shadow hover:shadow-lg">
+                <h3 class="text-xl font-semibold text-yellow-300">Portfolio Website</h3>
+                <p class="text-gray-400">A sleek and modern portfolio showcasing my skills and work.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Recent Transactions -->
-            <div class="bg-[#222222] p-6 rounded shadow mt-6">
-                <h3 class="text-xl font-semibold text-yellow-300">Recent Transactions</h3>
-                <table class="w-full mt-4 text-left border-collapse">
-                    <thead>
-                        <tr class="text-gray-400 border-b border-gray-700">
-                            <th class="p-2">User</th>
-                            <th class="p-2">Amount</th>
-                            <th class="p-2">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-2">John Doe</td>
-                            <td class="p-2">$200</td>
-                            <td class="p-2 text-green-400">Completed</td>
-                        </tr>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-2">Jane Smith</td>
-                            <td class="p-2">$450</td>
-                            <td class="p-2 text-yellow-400">Pending</td>
-                        </tr>
-                        <tr class="border-b border-gray-700">
-                            <td class="p-2">Mike Johnson</td>
-                            <td class="p-2">$300</td>
-                            <td class="p-2 text-red-400">Failed</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <!-- Skills Section -->
+    <section id="skills" class="p-10 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-yellow-400">Skills</h2>
+        <div class="flex flex-wrap justify-center gap-4 mt-4">
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">HTML</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">CSS</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">JavaScript</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">React</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">Node.js</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">Laravel</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">MongoDB</span>
+            <span class="bg-[#222222] text-yellow-300 px-4 py-2 rounded">Tailwind CSS</span>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="p-10 bg-[#181818]">
+        <h2 class="text-3xl font-bold text-center text-yellow-400">What Clients Say</h2>
+        <div class="mt-6 max-w-4xl mx-auto">
+            <div class="bg-[#222222] p-6 rounded shadow text-center">
+                <p class="text-gray-300 italic">"John delivered an amazing e-commerce platform. Highly recommended!"</p>
+                <span class="block mt-4 text-yellow-300">- Alex Smith</span>
             </div>
-        </main>
-    </div>
+            <div class="bg-[#222222] p-6 rounded shadow text-center mt-4">
+                <p class="text-gray-300 italic">"His attention to detail and UI/UX skills are top-notch!"</p>
+                <span class="block mt-4 text-yellow-300">- Sarah Johnson</span>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        const ctx = document.getElementById('userChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                datasets: [{
-                    label: 'Users',
-                    data: [10, 20, 40, 35, 50, 70],
-                    borderColor: 'yellow',
-                    backgroundColor: 'rgba(255, 255, 0, 0.2)',
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true },
-                    x: { grid: { display: false } }
-                }
-            }
-        });
-    </script>
+    <!-- Contact Section -->
+    <section id="contact" class="p-10 bg-[#222222] text-white text-center">
+        <h2 class="text-3xl font-bold text-yellow-400">Contact</h2>
+        <p class="mt-4">Email: anant@example.com</p>
+        <p>Phone: +123 456 7890</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#181818] text-white py-4 text-center">
+        &copy; 2025 Anant. All rights reserved.
+    </footer>
 
 </body>
 </html>
